@@ -1,0 +1,29 @@
+<h1>Listing linkposts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @linkposts.each do |linkpost| %>
+      <tr>
+        <td><%= linkpost.title %></td>
+        <td><%= linkpost.user_id %></td>
+        <td><%= link_to 'Show', linkpost %></td>
+        <td><%= link_to 'Edit', edit_linkpost_path(linkpost) %></td>
+        <td><%= link_to 'Destroy', linkpost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Linkpost', new_linkpost_path %>
